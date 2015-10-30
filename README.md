@@ -3,7 +3,7 @@
 # pilots
 Repository for the TOSCA files of the 12 pilots of [CloudOpting](http://www.cloudopting.eu/) project
 ##Bootstraping folder
-A template folder is available to bootstrap a new experiment.
+A [template](https://github.com/CloudOpting/pilots/tree/master/template) folder is available to bootstrap a new experiment.
 
 Structure of the folders is the following:
  - TOSCA-Metadata
