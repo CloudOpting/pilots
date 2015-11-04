@@ -1,0 +1,1 @@
+Folder that contains custom XML types definition for TOSCA archive.
