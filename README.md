@@ -12,7 +12,7 @@ Structure of the folders is the following:
  - Templates - contains various [FreeMarker](http://freemarker.org/) templates used throughout TOSCA XML file.
  - Definitions - contains the main TOSCA file in XML format. It is referenced from TOSCA.meta file
 
- 
+
 The steps to execute a TOSCA definition are in the diagram below:
 ![Steps to deploy TOSCA definition](https://raw.githubusercontent.com/CloudOpting/pilots/master/documentation/TOSCA%20Deployment%20steps.png)
 
