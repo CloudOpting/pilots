@@ -10,7 +10,7 @@ The __puppetfile__ is the file where describe which puppet modules are going to 
 
 The context is common for all the images in a service.
 
-This is the official __puppetfile__ documentation: https://github.com/puppetlabs/r10k/blob/master/doc/puppetfile.mkd
+[This](https://github.com/puppetlabs/r10k/blob/master/doc/puppetfile.mkd) is the official __puppetfile__ documentation.
 
 It is recommended to specify package version for the modules.
 
