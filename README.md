@@ -21,3 +21,4 @@ For an hungry eye the high level description of the structure follows :
 ## Guidelines and recommendations
 
 - [Puppet recommendations](documentation/puppet.md)
+- [Docker recommendations](documentation/docker.md)
