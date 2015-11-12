@@ -20,3 +20,6 @@ containername:
   image: reponame/imageservice
   restart: always
 ```
+
+
+This way, each time the daemon inside the container stops (no matter why) or the VM is restarted, the application will be stated automatically.
