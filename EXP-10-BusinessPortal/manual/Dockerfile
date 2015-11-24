@@ -11,6 +11,7 @@ RUN puppet module install puppetlabs-mysql
 
 ADD wordpress-4.2.5.tar.gz /tmp/wordpress.tar.gz
 ADD exp10.pp /tmp/exp10.pp
+ADD wp-config.php.erb /tmp/wp-config.php.erb
 
 RUN puppet apply /tmp/exp10.pp
 
