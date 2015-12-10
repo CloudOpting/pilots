@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-16"?><Definitions xmlns="http://docs.oasis-open.org/tosca/ns/2011/12" id="HttpC4C" name="" targetNamespace="http://www.cloudopting.eu" xmlns:co="http://docs.oasis-open.org/tosca/ns/2011/12/CloudOptingTypes" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://docs.oasis-open.org/tosca/ns/2011/12 ../Types/TOSCA-v1.0.xsd http://docs.oasis-open.org/tosca/ns/2011/12/CloudOptingTypes   ../Types/CloudOptingTypes.xsd">
 	<ServiceTemplate id="HttpC4C" name="HttpC4C">
 		<TopologyTemplate>
-		<NodeTemplate id="MongoC4C_VMHost" type="VMHost"><Properties><co:VMhostProperties><co:cpu>1</co:cpu><co:ram>512</co:ram><co:disk>5</co:disk></co:VMhostProperties></Properties><Capabilities/></NodeTemplate><NodeTemplate id="MongoC4C_DC" type="DockerContainer"><Properties><co:DockerContainerProperties><co:image>cloudopting/ubuntubase:14.04</co:image><co:entrypoint>/worldline/mongo-cloud4cities/data</co:entrypoint><co:cmd>["mongod --smallfiles --directoryperdb --auth"]</co:cmd><co:logtype>mongodb</co:logtype><co:volumes><co:readonly>false</co:readonly></co:volumes></co:DockerContainerProperties></Properties><Capabilities><Capability id="c0" type="DockerContainerPortsCaps"><Properties><co:DockerContainerPorts><co:container>27017</co:container><co:host>27017</co:host></co:DockerContainerPorts></Properties></Capability></Capabilities><DeploymentArtifacts><DeploymentArtifact artifactRef="DockerContainerDT" artifactType="DockerfileTemplate"/><DeploymentArtifact artifactRef="DockerContainerPT" artifactType="PuppetTemplate"/></DeploymentArtifacts></NodeTemplate><NodeTemplate id="MongoC4C_DB" type="MongoDBDatabase"><Properties><co:MongoDBDatabaseProperties><co:password><?userInput {"password":{"xpath":"//ns:NodeTemplate[@id='MongoC4C_DB']/ns:Properties/co:MongoDBDatabaseProperties/co:password","form":{"title":"DB password","type":"string"}}}?></co:password><co:user><?userInput {"user":{"xpath":"//ns:NodeTemplate[@id='MongoC4C_DB']/ns:Properties/co:MongoDBDatabaseProperties/co:user","form":{"title":"DB user","type":"string"}}}?></co:user><co:dbname><?userInput {"dbname":{"xpath":"//ns:NodeTemplate[@id='MongoC4C_DB']/ns:Properties/co:MongoDBDatabaseProperties/co:dbname","form":{"title":"DB name","type":"string"}}}?></co:dbname></co:MongoDBDatabaseProperties></Properties><Capabilities/><DeploymentArtifacts><DeploymentArtifact artifactRef="MongoDBDatabasePT" artifactType="PuppetTemplate"/></DeploymentArtifacts></NodeTemplate><RelationshipTemplate id="e0" type="hostedOn"><SourceElement ref="MongoC4C_DC"/><TargetElement ref="MongoC4C_VMHost"/></RelationshipTemplate><RelationshipTemplate id="e1" type="hostedOn"><SourceElement ref="MongoC4C_DB"/><TargetElement ref="MongoC4C_DC"/></RelationshipTemplate><NodeTemplate id="MongoC4C_VMHost" type="VMHost"><Properties><co:VMhostProperties><co:cpu>1</co:cpu><co:ram>512</co:ram><co:disk>5</co:disk></co:VMhostProperties></Properties><Capabilities/></NodeTemplate><NodeTemplate id="MongoC4C_DC" type="DockerContainer"><Properties><co:DockerContainerProperties><co:image>cloudopting/ubuntubase:14.04</co:image><co:entrypoint>/worldline/mongo-cloud4cities/data</co:entrypoint><co:cmd>["mongod --smallfiles --directoryperdb --auth"]</co:cmd><co:logtype>mongodb</co:logtype><co:volumes><co:readonly>false</co:readonly></co:volumes></co:DockerContainerProperties></Properties><Capabilities><Capability id="c0" type="DockerContainerPortsCaps"><Properties><co:DockerContainerPorts><co:container>27017</co:container><co:host>27017</co:host></co:DockerContainerPorts></Properties></Capability></Capabilities><DeploymentArtifacts><DeploymentArtifact artifactRef="DockerContainerDT" artifactType="DockerfileTemplate"/><DeploymentArtifact artifactRef="DockerContainerPT" artifactType="PuppetTemplate"/></DeploymentArtifacts></NodeTemplate><NodeTemplate id="MongoC4C_DB" type="MongoDBDatabase"><Properties><co:MongoDBDatabaseProperties><co:password><?userInput {"password":{"xpath":"//ns:NodeTemplate[@id='MongoC4C_DB']/ns:Properties/co:MongoDBDatabaseProperties/co:password","form":{"title":"DB password","type":"string"}}}?></co:password><co:user><?userInput {"user":{"xpath":"//ns:NodeTemplate[@id='MongoC4C_DB']/ns:Properties/co:MongoDBDatabaseProperties/co:user","form":{"title":"DB user","type":"string"}}}?></co:user><co:dbname><?userInput {"dbname":{"xpath":"//ns:NodeTemplate[@id='MongoC4C_DB']/ns:Properties/co:MongoDBDatabaseProperties/co:dbname","form":{"title":"DB name","type":"string"}}}?></co:dbname></co:MongoDBDatabaseProperties></Properties><Capabilities/><DeploymentArtifacts><DeploymentArtifact artifactRef="MongoDBDatabasePT" artifactType="PuppetTemplate"/></DeploymentArtifacts></NodeTemplate><RelationshipTemplate id="e0" type="hostedOn"><SourceElement ref="MongoC4C_DC"/><TargetElement ref="MongoC4C_VMHost"/></RelationshipTemplate><RelationshipTemplate id="e1" type="hostedOn"><SourceElement ref="MongoC4C_DB"/><TargetElement ref="MongoC4C_DC"/></RelationshipTemplate><NodeTemplate id="HttpC4C_VMHost" type="VMHost"><Properties><co:VMhostProperties><co:cpu>1</co:cpu><co:ram>512</co:ram><co:disk>5</co:disk></co:VMhostProperties></Properties><Capabilities/></NodeTemplate><NodeTemplate id="HttpC4C_DC" type="DockerContainer"><Properties><co:DockerContainerProperties><co:image>cloudopting/ubuntubase:14.04</co:image><co:entrypoint>/usr/local/apache2</co:entrypoint><co:cmd>["httpd -DFOREGROUND"]</co:cmd><co:logtype>apache</co:logtype><co:volumes><co:readonly>false</co:readonly></co:volumes></co:DockerContainerProperties></Properties><Capabilities><Capability id="c0" type="DockerContainerPortsCaps"><Properties><co:DockerContainerPorts><co:container>80</co:container><co:host>80</co:host></co:DockerContainerPorts><co:DockerContainerPorts><co:container>443</co:container><co:host>443</co:host></co:DockerContainerPorts></Properties></Capability></Capabilities><DeploymentArtifacts><DeploymentArtifact artifactRef="DockerContainerDT" artifactType="DockerfileTemplate"/><DeploymentArtifact artifactRef="DockerContainerPT" artifactType="PuppetTemplate"/></DeploymentArtifacts></NodeTemplate><NodeTemplate id="HttpC4C_Apache" type="Apache"><Properties><co:ApacheProperties><co:default_mods>false</co:default_mods><co:default_vhost>false</co:default_vhost><co:servername>HttpC4C.cloudapp.net</co:servername></co:ApacheProperties></Properties><Capabilities><Capability id="c0" type="portsExposeCaps"><Properties><co:portsExpose><co:port>80</co:port></co:portsExpose><co:portsExpose><co:port>443</co:port></co:portsExpose></Properties></Capability></Capabilities><DeploymentArtifacts><DeploymentArtifact artifactRef="ApachePT" artifactType="PuppetTemplate"/><DeploymentArtifact artifactRef="ApachePM" artifactType="PuppetModule"/></DeploymentArtifacts></NodeTemplate><NodeTemplate id="HttpC4C_VMHost" type="VMHost"><Properties><co:VMhostProperties><co:cpu>1</co:cpu><co:ram>512</co:ram><co:disk>5</co:disk></co:VMhostProperties></Properties><Capabilities/></NodeTemplate><NodeTemplate id="HttpC4C_DC" type="DockerContainer"><Properties><co:DockerContainerProperties><co:image>cloudopting/ubuntubase:14.04</co:image><co:entrypoint>/usr/local/apache2</co:entrypoint><co:cmd>["httpd -DFOREGROUND"]</co:cmd><co:logtype>apache</co:logtype><co:volumes><co:readonly>false</co:readonly></co:volumes></co:DockerContainerProperties></Properties><Capabilities><Capability id="c0" type="DockerContainerPortsCaps"><Properties><co:DockerContainerPorts><co:container>80</co:container><co:host>80</co:host></co:DockerContainerPorts><co:DockerContainerPorts><co:container>443</co:container><co:host>443</co:host></co:DockerContainerPorts></Properties></Capability></Capabilities><DeploymentArtifacts><DeploymentArtifact artifactRef="DockerContainerDT" artifactType="DockerfileTemplate"/><DeploymentArtifact artifactRef="DockerContainerPT" artifactType="PuppetTemplate"/></DeploymentArtifacts></NodeTemplate><NodeTemplate id="HttpC4C_Apache" type="Apache"><Properties><co:ApacheProperties><co:default_mods>false</co:default_mods><co:default_vhost>false</co:default_vhost><co:servername><?userInput {"servername":{"xpath":"//ns:NodeTemplate[@id='HttpC4C_Apache']/ns:Properties/co:ApacheProperties/co:servername","form":{"title":"Server name (fqdn)","type":"string"}}}?></co:servername></co:ApacheProperties></Properties><Capabilities><Capability id="c0" type="portsExposeCaps"><Properties><co:portsExpose><co:port>80</co:port></co:portsExpose><co:portsExpose><co:port>443</co:port></co:portsExpose></Properties></Capability></Capabilities><DeploymentArtifacts><DeploymentArtifact artifactRef="ApachePT" artifactType="PuppetTemplate"/><DeploymentArtifact artifactRef="ApachePM" artifactType="PuppetModule"/></DeploymentArtifacts></NodeTemplate><RelationshipTemplate id="e0" type="hostedOn"><SourceElement ref="HttpC4C_DC"/><TargetElement ref="HttpC4C_VMHost"/></RelationshipTemplate><RelationshipTemplate id="e1" type="hostedOn"><SourceElement ref="HttpC4C_Apache"/><TargetElement ref="HttpC4C_DC"/></RelationshipTemplate></TopologyTemplate>
+		<NodeTemplate id="MongoC4C_VMHost" type="VMHost"><Properties><co:VMhostProperties><co:cpu>1</co:cpu><co:ram>512</co:ram><co:disk>5</co:disk></co:VMhostProperties></Properties><Capabilities/></NodeTemplate><NodeTemplate id="MongoC4C_DC" type="DockerContainer"><Properties><co:DockerContainerProperties><co:image>cloudopting/ubuntubase:14.04</co:image><co:entrypoint>/worldline/mongo-cloud4cities/data</co:entrypoint><co:cmd>["mongod --smallfiles --directoryperdb --auth"]</co:cmd><co:logtype>mongodb</co:logtype><co:volumes><co:readonly>false</co:readonly></co:volumes></co:DockerContainerProperties></Properties><Capabilities><Capability id="c0" type="DockerContainerPortsCaps"><Properties><co:DockerContainerPorts><co:container>27017</co:container><co:host>27017</co:host></co:DockerContainerPorts></Properties></Capability></Capabilities><DeploymentArtifacts><DeploymentArtifact artifactRef="DockerContainerDT" artifactType="DockerfileTemplate"/><DeploymentArtifact artifactRef="DockerContainerPT" artifactType="PuppetTemplate"/></DeploymentArtifacts></NodeTemplate><NodeTemplate id="MongoC4C_DB" type="MongoDBDatabase"><Properties><co:MongoDBDatabaseProperties><co:password><?userInput {"password":{"xpath":"//ns:NodeTemplate[@id='MongoC4C_DB']/ns:Properties/co:MongoDBDatabaseProperties/co:password","form":{"title":"DB password","type":"string"}}}?></co:password><co:user><?userInput {"user":{"xpath":"//ns:NodeTemplate[@id='MongoC4C_DB']/ns:Properties/co:MongoDBDatabaseProperties/co:user","form":{"title":"DB user","type":"string"}}}?></co:user><co:dbname><?userInput {"dbname":{"xpath":"//ns:NodeTemplate[@id='MongoC4C_DB']/ns:Properties/co:MongoDBDatabaseProperties/co:dbname","form":{"title":"DB name","type":"string"}}}?></co:dbname></co:MongoDBDatabaseProperties></Properties><Capabilities/><DeploymentArtifacts><DeploymentArtifact artifactRef="MongoDBDatabasePT" artifactType="PuppetTemplate"/></DeploymentArtifacts></NodeTemplate><RelationshipTemplate id="e0" type="hostedOn"><SourceElement ref="MongoC4C_DC"/><TargetElement ref="MongoC4C_VMHost"/></RelationshipTemplate><RelationshipTemplate id="e1" type="hostedOn"><SourceElement ref="MongoC4C_DB"/><TargetElement ref="MongoC4C_DC"/></RelationshipTemplate><NodeTemplate id="MongoC4C_VMHost" type="VMHost"><Properties><co:VMhostProperties><co:cpu>1</co:cpu><co:ram>512</co:ram><co:disk>5</co:disk></co:VMhostProperties></Properties><Capabilities/></NodeTemplate><NodeTemplate id="MongoC4C_DC" type="DockerContainer"><Properties><co:DockerContainerProperties><co:image>cloudopting/ubuntubase:14.04</co:image><co:entrypoint>/worldline/mongo-cloud4cities/data</co:entrypoint><co:cmd>["mongod --smallfiles --directoryperdb --auth"]</co:cmd><co:logtype>mongodb</co:logtype><co:volumes><co:readonly>false</co:readonly></co:volumes></co:DockerContainerProperties></Properties><Capabilities><Capability id="c0" type="DockerContainerPortsCaps"><Properties><co:DockerContainerPorts><co:container>27017</co:container><co:host>27017</co:host></co:DockerContainerPorts></Properties></Capability></Capabilities><DeploymentArtifacts><DeploymentArtifact artifactRef="DockerContainerDT" artifactType="DockerfileTemplate"/><DeploymentArtifact artifactRef="DockerContainerPT" artifactType="PuppetTemplate"/></DeploymentArtifacts></NodeTemplate><NodeTemplate id="MongoC4C_DB" type="MongoDBDatabase"><Properties><co:MongoDBDatabaseProperties><co:password><?userInput {"password":{"xpath":"//ns:NodeTemplate[@id='MongoC4C_DB']/ns:Properties/co:MongoDBDatabaseProperties/co:password","form":{"title":"DB password","type":"string"}}}?></co:password><co:user><?userInput {"user":{"xpath":"//ns:NodeTemplate[@id='MongoC4C_DB']/ns:Properties/co:MongoDBDatabaseProperties/co:user","form":{"title":"DB user","type":"string"}}}?></co:user><co:dbname><?userInput {"dbname":{"xpath":"//ns:NodeTemplate[@id='MongoC4C_DB']/ns:Properties/co:MongoDBDatabaseProperties/co:dbname","form":{"title":"DB name","type":"string"}}}?></co:dbname></co:MongoDBDatabaseProperties></Properties><Capabilities/><DeploymentArtifacts><DeploymentArtifact artifactRef="MongoDBDatabasePT" artifactType="PuppetTemplate"/></DeploymentArtifacts></NodeTemplate><RelationshipTemplate id="e0" type="hostedOn"><SourceElement ref="MongoC4C_DC"/><TargetElement ref="MongoC4C_VMHost"/></RelationshipTemplate><RelationshipTemplate id="e1" type="hostedOn"><SourceElement ref="MongoC4C_DB"/><TargetElement ref="MongoC4C_DC"/></RelationshipTemplate><NodeTemplate id="HttpC4C_VMHost" type="VMHost"><Properties><co:VMhostProperties><co:cpu>1</co:cpu><co:ram>512</co:ram><co:disk>5</co:disk></co:VMhostProperties></Properties><Capabilities/></NodeTemplate><NodeTemplate id="HttpC4C_DC" type="DockerContainer"><Properties><co:DockerContainerProperties><co:image>cloudopting/ubuntubase:14.04</co:image><co:entrypoint>/usr/local/apache2</co:entrypoint><co:cmd>["httpd -DFOREGROUND"]</co:cmd><co:logtype>apache</co:logtype><co:volumes><co:readonly>false</co:readonly></co:volumes></co:DockerContainerProperties></Properties><Capabilities><Capability id="c0" type="DockerContainerPortsCaps"><Properties><co:DockerContainerPorts><co:container>80</co:container><co:host>80</co:host></co:DockerContainerPorts><co:DockerContainerPorts><co:container>443</co:container><co:host>443</co:host></co:DockerContainerPorts></Properties></Capability></Capabilities><DeploymentArtifacts><DeploymentArtifact artifactRef="DockerContainerDT" artifactType="DockerfileTemplate"/><DeploymentArtifact artifactRef="DockerContainerPT" artifactType="PuppetTemplate"/></DeploymentArtifacts></NodeTemplate><NodeTemplate id="HttpC4C_Apache" type="Apache"><Properties><co:ApacheProperties><co:default_mods>false</co:default_mods><co:default_vhost>false</co:default_vhost><co:servername>HttpC4C.cloudapp.net</co:servername></co:ApacheProperties></Properties><Capabilities><Capability id="c0" type="portsExposeCaps"><Properties><co:portsExpose><co:port>80</co:port></co:portsExpose><co:portsExpose><co:port>443</co:port></co:portsExpose></Properties></Capability></Capabilities><DeploymentArtifacts><DeploymentArtifact artifactRef="ApachePT" artifactType="PuppetTemplate"/><DeploymentArtifact artifactRef="ApachePM" artifactType="PuppetModule"/></DeploymentArtifacts></NodeTemplate><NodeTemplate id="HttpC4C_VMHost" type="VMHost"><Properties><co:VMhostProperties><co:cpu>1</co:cpu><co:ram>512</co:ram><co:disk>5</co:disk></co:VMhostProperties></Properties><Capabilities/></NodeTemplate><NodeTemplate id="HttpC4C_DC" type="DockerContainer"><Properties><co:DockerContainerProperties><co:image>cloudopting/ubuntubase:14.04</co:image><co:entrypoint>/usr/local/apache2</co:entrypoint><co:cmd>["httpd -DFOREGROUND"]</co:cmd><co:logtype>apache</co:logtype><co:volumes><co:readonly>false</co:readonly></co:volumes></co:DockerContainerProperties></Properties><Capabilities><Capability id="c0" type="DockerContainerPortsCaps"><Properties><co:DockerContainerPorts><co:container>80</co:container><co:host>80</co:host></co:DockerContainerPorts><co:DockerContainerPorts><co:container>443</co:container><co:host>443</co:host></co:DockerContainerPorts></Properties></Capability></Capabilities><DeploymentArtifacts><DeploymentArtifact artifactRef="DockerContainerDT" artifactType="DockerfileTemplate"/><DeploymentArtifact artifactRef="DockerContainerPT" artifactType="PuppetTemplate"/></DeploymentArtifacts></NodeTemplate><NodeTemplate id="HttpC4C_Apache" type="Apache"><Properties><co:ApacheProperties><co:default_mods>false</co:default_mods><co:default_vhost>false</co:default_vhost><co:servername><?userInput {"servername":{"xpath":"//ns:NodeTemplate[@id='HttpC4C_Apache']/ns:Properties/co:ApacheProperties/co:servername","form":{"title":"Server name (fqdn)","type":"string"}}}?></co:servername></co:ApacheProperties></Properties><Capabilities><Capability id="c0" type="portsExposeCaps"><Properties><co:portsExpose><co:port>80</co:port></co:portsExpose><co:portsExpose><co:port>443</co:port></co:portsExpose></Properties></Capability></Capabilities><DeploymentArtifacts><DeploymentArtifact artifactRef="ApachePT" artifactType="PuppetTemplate"/><DeploymentArtifact artifactRef="ApachePM" artifactType="PuppetModule"/></DeploymentArtifacts></NodeTemplate><RelationshipTemplate id="e0" type="hostedOn"><SourceElement ref="HttpC4C_DC"/><TargetElement ref="HttpC4C_VMHost"/></RelationshipTemplate><RelationshipTemplate id="e1" type="hostedOn"><SourceElement ref="HttpC4C_Apache"/><TargetElement ref="HttpC4C_DC"/></RelationshipTemplate><NodeTemplate id="HttpC4C_VMHost" type="VMHost"><Properties><co:VMhostProperties><co:cpu>1</co:cpu><co:ram>512</co:ram><co:disk>5</co:disk></co:VMhostProperties></Properties><Capabilities/></NodeTemplate><NodeTemplate id="HttpC4C_DC" type="DockerContainer"><Properties><co:DockerContainerProperties><co:image>cloudopting/ubuntubase:14.04</co:image><co:entrypoint>/usr/local/apache2</co:entrypoint><co:cmd>["httpd -DFOREGROUND"]</co:cmd><co:logtype>apache</co:logtype><co:volumes><co:readonly>false</co:readonly></co:volumes></co:DockerContainerProperties></Properties><Capabilities><Capability id="c0" type="DockerContainerPortsCaps"><Properties><co:DockerContainerPorts><co:container>80</co:container><co:host>80</co:host></co:DockerContainerPorts><co:DockerContainerPorts><co:container>443</co:container><co:host>443</co:host></co:DockerContainerPorts></Properties></Capability></Capabilities><DeploymentArtifacts><DeploymentArtifact artifactRef="DockerContainerDT" artifactType="DockerfileTemplate"/><DeploymentArtifact artifactRef="DockerContainerPT" artifactType="PuppetTemplate"/></DeploymentArtifacts></NodeTemplate><NodeTemplate id="HttpC4C_Apache" type="Apache"><Properties><co:ApacheProperties><co:default_mods>false</co:default_mods><co:default_vhost>true</co:default_vhost><co:servername><?userInput {"servername":{"xpath":"//ns:NodeTemplate[@id='HttpC4C_Apache']/ns:Properties/co:ApacheProperties/co:servername","form":{"title":"Server name (fqdn)","type":"string"}}}?></co:servername></co:ApacheProperties></Properties><Capabilities><Capability id="c0" type="portsExposeCaps"><Properties><co:portsExpose><co:port>80</co:port></co:portsExpose><co:portsExpose><co:port>443</co:port></co:portsExpose></Properties></Capability></Capabilities><DeploymentArtifacts><DeploymentArtifact artifactRef="ApachePT" artifactType="PuppetTemplate"/><DeploymentArtifact artifactRef="ApachePM" artifactType="PuppetModule"/></DeploymentArtifacts></NodeTemplate><RelationshipTemplate id="e0" type="hostedOn"><SourceElement ref="HttpC4C_DC"/><TargetElement ref="HttpC4C_VMHost"/></RelationshipTemplate><RelationshipTemplate id="e1" type="hostedOn"><SourceElement ref="HttpC4C_Apache"/><TargetElement ref="HttpC4C_DC"/></RelationshipTemplate></TopologyTemplate>
 		<ArtifactType name="PuppetTemplate">
 		</ArtifactType>
 		<ArtifactType name="DockerfileTemplate">
@@ -11,6 +11,422 @@
 		</ArtifactType>
 	</ServiceTemplate>
 <NodeType color="#ffffff" image="tomcat.png" name="Tomcat" shape="ellipse" >
+	<DerivedFrom typeRef="root"/>
+	<PropertiesDefinition element="TomcatProperties" type="tTomcatProperties"/>
+	<Interfaces>
+		<Interface name="Install">
+			<Operation name="compilePuppetTemplateHierarchy"/>
+		</Interface>
+	</Interfaces>
+	<CapabilityDefinitions>
+		<CapabilityDefinition capabilityType="portsExposeCaps"/>
+	</CapabilityDefinitions>
+</NodeType><NodeTypeImplementation name="TomcatImpl" nodeType="Tomcat" >
+	<DeploymentArtifacts>
+		<DeploymentArtifact artifactRef="TomcatPT" artifactType="PuppetTemplate" name="TomcatPT.ftl">
+		</DeploymentArtifact>
+		<DeploymentArtifact artifactRef="TomcatPM" artifactType="PuppetModule">
+		</DeploymentArtifact>
+	</DeploymentArtifacts>
+</NodeTypeImplementation><ArtifactTemplate id="TomcatPT" type="PuppetTemplate" >
+	<ArtifactReferences>
+		<ArtifactReference reference="Templates/TomcatPT.ftl"/>
+	</ArtifactReferences>
+</ArtifactTemplate><ArtifactTemplate id="TomcatPM" type="PuppetModule" >
+	<Properties xmlns:co="http://docs.oasis-open.org/tosca/ns/2011/12/CloudOptingTypes">
+		<co:PuppetModuleProperties>
+			<co:module>tomcat</co:module>
+			<co:git>https://github.com/puppetlabs/puppetlabs-tomcat</co:git>
+		</co:PuppetModuleProperties>
+	</Properties>
+</ArtifactTemplate><RelationshipType color="#992299" name="volumeFrom" style="solid" >
+	<PropertiesDefinition element="volumeFromProperties" type="tvolumeFromProperties"/>
+</RelationshipType><NodeType color="#ffffff" image="apachevh.png" name="ApacheVirtualHost" shape="ellipse" >
+	<DerivedFrom typeRef="root"/>
+	<PropertiesDefinition element="ApacheVirtualHostProperties" type="tApacheVirtualHostProperties"/>
+	<Interfaces>
+		<Interface name="Install">
+			<Operation name="compilePuppetTemplateHierarchy"/>
+		</Interface>
+	</Interfaces>
+</NodeType><NodeTypeImplementation name="ApacheVirtualHostImpl" nodeType="ApacheVirtualHost" >
+	<DeploymentArtifacts>
+		<DeploymentArtifact artifactRef="ApacheVirtualHostPT" artifactType="PuppetTemplate" name="ApacheVirtualHostPT.ftl">
+		</DeploymentArtifact>
+	</DeploymentArtifacts>
+</NodeTypeImplementation><ArtifactTemplate id="ApacheVirtualHostPT" type="PuppetTemplate" >
+	<ArtifactReferences>
+		<ArtifactReference reference="Templates/ApacheVirtualHostPT.ftl"/>
+	</ArtifactReferences>
+</ArtifactTemplate><NodeType color="#ffffff" image="ckan.png" name="CKAN" shape="ellipse" >
+	<DerivedFrom typeRef="root"/>
+	<PropertiesDefinition element="CKANProperties" type="tCKANProperties"/>
+	<Interfaces>
+		<Interface name="Install">
+			<Operation name="compilePuppetTemplateHierarchy"/>
+		</Interface>
+	</Interfaces>
+</NodeType><NodeTypeImplementation name="CKANImpl" nodeType="CKAN" >
+	<DeploymentArtifacts>
+		<DeploymentArtifact artifactRef="CKANPT" artifactType="PuppetTemplate" name="CKANPT.ftl">
+		</DeploymentArtifact>
+		<DeploymentArtifact artifactRef="CKANPM" artifactType="PuppetModule">
+		</DeploymentArtifact>
+	</DeploymentArtifacts>
+</NodeTypeImplementation><ArtifactTemplate id="CKANPT" type="PuppetTemplate" >
+	<ArtifactReferences>
+		<ArtifactReference reference="Templates/CKANPT.ftl"/>
+	</ArtifactReferences>
+</ArtifactTemplate><ArtifactTemplate id="CKANPM" type="PuppetModule" >
+	<Properties xmlns:co="http://docs.oasis-open.org/tosca/ns/2011/12/CloudOptingTypes">
+		<co:PuppetModuleProperties>
+			<co:module>liferay</co:module>
+			<co:git>https://github.com/gioppoluca/puppet-liferay.git</co:git>
+		</co:PuppetModuleProperties>
+	</Properties>
+</ArtifactTemplate><NodeType color="#ffffff" image="apache.png" name="Apache" shape="ellipse" >
+	<DerivedFrom typeRef="root"/>
+	<PropertiesDefinition element="ApacheProperties" type="tApacheProperties"/>
+	<Interfaces>
+		<Interface name="Install">
+			<Operation name="compilePuppetTemplateHierarchy"/>
+		</Interface>
+	</Interfaces>
+	<CapabilityDefinitions>
+		<CapabilityDefinition capabilityType="portsExposeCaps"/>
+	</CapabilityDefinitions>
+</NodeType><NodeTypeImplementation name="ApacheImpl" nodeType="Apache" >
+	<DeploymentArtifacts>
+		<DeploymentArtifact artifactRef="ApachePT" artifactType="PuppetTemplate" name="ApachePT.ftl">
+		</DeploymentArtifact>
+		<DeploymentArtifact artifactRef="ApachePM" artifactType="PuppetModule">
+		</DeploymentArtifact>
+	</DeploymentArtifacts>
+</NodeTypeImplementation><ArtifactTemplate id="ApachePT" type="PuppetTemplate" >
+	<ArtifactReferences>
+		<ArtifactReference reference="Templates/ApachePT.ftl"/>
+	</ArtifactReferences>
+</ArtifactTemplate><ArtifactTemplate id="ApachePM" type="PuppetModule" >
+	<Properties xmlns:co="http://docs.oasis-open.org/tosca/ns/2011/12/CloudOptingTypes">
+		<co:PuppetModuleProperties>
+			<co:module>apache</co:module>
+			<co:git>https://github.com/puppetlabs/puppetlabs-apache</co:git>
+		</co:PuppetModuleProperties>
+	</Properties>
+</ArtifactTemplate><NodeType color="#332299" image="docker.png" name="ApacheModule" shape="ellipse" >
+	<DerivedFrom typeRef="root"/>
+	<PropertiesDefinition element="ApacheModuleProperties" type="tApacheModuleProperties"/>
+	<Interfaces>
+		<Interface name="Install">
+			<Operation name="compilePuppetTemplateHierarchy"/>
+		</Interface>
+	</Interfaces>
+</NodeType><NodeTypeImplementation name="ApacheModuleImpl" nodeType="ApacheModule" >
+	<DeploymentArtifacts>
+		<DeploymentArtifact artifactRef="ApacheModulePT" artifactType="PuppetTemplate" name="ApacheModulePT.ftl">
+		</DeploymentArtifact>
+	</DeploymentArtifacts>
+</NodeTypeImplementation><ArtifactTemplate id="ApacheModulePT" type="PuppetTemplate" >
+	<ArtifactReferences>
+		<ArtifactReference reference="Templates/ApacheModulePT.ftl"/>
+	</ArtifactReferences>
+</ArtifactTemplate><NodeType color="#332299" image="docker.png" name="MongoDBDatabase" shape="ellipse" >
+	<DerivedFrom typeRef="root"/>
+	<PropertiesDefinition element="MongoDBDatabaseProperties" type="tMongoDBDatabaseProperties"/>
+	<Interfaces>
+		<Interface name="Install">
+			<Operation name="compilePuppetTemplateHierarchy"/>
+		</Interface>
+	</Interfaces>
+</NodeType><NodeTypeImplementation name="MongoDBDatabaseImpl" nodeType="MongoDBDatabase" >
+	<DeploymentArtifacts>
+		<DeploymentArtifact artifactRef="MongoDBDatabasePT" artifactType="PuppetTemplate" name="MongoDBDatabasePT.ftl">
+		</DeploymentArtifact>
+	</DeploymentArtifacts>
+</NodeTypeImplementation><ArtifactTemplate id="MongoDBDatabasePT" type="PuppetTemplate" >
+	<ArtifactReferences>
+		<ArtifactReference reference="Templates/MongoDBDatabasePT.ftl"/>
+	</ArtifactReferences>
+</ArtifactTemplate><NodeType color="#ffffff" image="mysqldb.png" name="MySQLDatabase" shape="ellipse" >
+	<DerivedFrom typeRef="root"/>
+	<PropertiesDefinition element="MySQLDatabaseProperties" type="tMySQLDatabaseProperties"/>
+	<Interfaces>
+		<Interface name="Install">
+			<Operation name="compilePuppetTemplateHierarchy"/>
+		</Interface>
+	</Interfaces>
+</NodeType><NodeTypeImplementation name="MySQLDatabaseImpl" nodeType="MySQLDatabase" >
+	<DeploymentArtifacts>
+		<DeploymentArtifact artifactRef="MySQLDatabasePT" artifactType="PuppetTemplate" name="MySQLDatabasePT.ftl">
+		</DeploymentArtifact>
+	</DeploymentArtifacts>
+</NodeTypeImplementation><ArtifactTemplate id="MySQLDatabasePT" type="PuppetTemplate" >
+	<ArtifactReferences>
+		<ArtifactReference reference="Templates/MySQLDatabasePT.ftl"/>
+	</ArtifactReferences>
+</ArtifactTemplate><NodeType color="#332299" image="docker.png" name="Cron" shape="ellipse" >
+	<DerivedFrom typeRef="root"/>
+	<PropertiesDefinition element="CronProperties" type="tCronProperties"/>
+	<Interfaces>
+		<Interface name="Install">
+			<Operation name="compilePuppetTemplateHierarchy"/>
+		</Interface>
+	</Interfaces>
+</NodeType><NodeTypeImplementation name="CronImpl" nodeType="Cron" >
+	<DeploymentArtifacts>
+		<DeploymentArtifact artifactRef="CronPT" artifactType="PuppetTemplate" name="CronPT.ftl">
+		</DeploymentArtifact>
+		<DeploymentArtifact artifactRef="CronPM" artifactType="PuppetModule">
+		</DeploymentArtifact>
+	</DeploymentArtifacts>
+</NodeTypeImplementation><ArtifactTemplate id="CronPT" type="PuppetTemplate" >
+	<ArtifactReferences>
+		<ArtifactReference reference="Templates/CronPT.ftl"/>
+	</ArtifactReferences>
+</ArtifactTemplate><ArtifactTemplate id="CronPM" type="PuppetModule" >
+	<Properties xmlns:co="http://docs.oasis-open.org/tosca/ns/2011/12/CloudOptingTypes">
+		<co:PuppetModuleProperties>
+			<co:module>rmueller-cron</co:module>
+			<co:git>https://github.com/roman-mueller/rmueller-cron</co:git>
+		</co:PuppetModuleProperties>
+	</Properties>
+</ArtifactTemplate><NodeType color="#ffffff" image="mysql.png" name="MySQL" shape="ellipse" >
+	<DerivedFrom typeRef="root"/>
+	<PropertiesDefinition element="MySQLProperties" type="tMySQLProperties"/>
+	<Interfaces>
+		<Interface name="Install">
+			<Operation name="compilePuppetTemplateHierarchy"/>
+		</Interface>
+	</Interfaces>
+	<CapabilityDefinitions>
+		<CapabilityDefinition capabilityType="portsExposeCaps"/>
+	</CapabilityDefinitions>
+</NodeType><NodeTypeImplementation name="MySQLImpl" nodeType="MySQL" >
+	<DeploymentArtifacts>
+		<DeploymentArtifact artifactRef="MySQLPT" artifactType="PuppetTemplate" name="MySQLPT.ftl">
+		</DeploymentArtifact>
+		<DeploymentArtifact artifactRef="MySQLPM" artifactType="PuppetModule">
+		</DeploymentArtifact>
+	</DeploymentArtifacts>
+</NodeTypeImplementation><ArtifactTemplate id="MySQLPT" type="PuppetTemplate" >
+	<ArtifactReferences>
+		<ArtifactReference reference="Templates/MySQLPT.ftl"/>
+	</ArtifactReferences>
+</ArtifactTemplate><ArtifactTemplate id="MySQLPM" type="PuppetModule" >
+	<Properties xmlns:co="http://docs.oasis-open.org/tosca/ns/2011/12/CloudOptingTypes">
+		<co:PuppetModuleProperties>
+			<co:module>mysql</co:module>
+			<co:git>https://github.com/puppetlabs/puppetlabs-mysql</co:git>
+		</co:PuppetModuleProperties>
+	</Properties>
+</ArtifactTemplate><RelationshipType color="#992222" name="hostedOn" style="solid" >
+</RelationshipType><NodeType color="#ffffff" image="war.jpg" name="War" shape="ellipse" >
+	<DerivedFrom typeRef="root"/>
+	<PropertiesDefinition element="WarProperties" type="tWarProperties"/>
+	<Interfaces>
+		<Interface name="Install">
+			<Operation name="compilePuppetTemplateHierarchy"/>
+		</Interface>
+	</Interfaces>
+</NodeType><NodeTypeImplementation name="WarImpl" nodeType="War" >
+	<DeploymentArtifacts>
+		<DeploymentArtifact artifactRef="WarPT" artifactType="PuppetTemplate" name="WarPT.ftl">
+		</DeploymentArtifact>
+	</DeploymentArtifacts>
+</NodeTypeImplementation><ArtifactTemplate id="WarPT" type="PuppetTemplate" >
+	<ArtifactReferences>
+		<ArtifactReference reference="Templates/WarPT.ftl"/>
+	</ArtifactReferences>
+</ArtifactTemplate><NodeType color="#332255" image="docker.png" name="Liferay" shape="ellipse" >
+	<DerivedFrom typeRef="root"/>
+	<PropertiesDefinition element="LiferayProperties" type="tLiferayProperties"/>
+	<Interfaces>
+		<Interface name="Install">
+			<Operation name="compilePuppetTemplateHierarchy"/>
+		</Interface>
+	</Interfaces>
+</NodeType><NodeTypeImplementation name="LiferayImpl" nodeType="Liferay" >
+	<DeploymentArtifacts>
+		<DeploymentArtifact artifactRef="LiferayPT" artifactType="PuppetTemplate" name="LiferayPT.ftl">
+		</DeploymentArtifact>
+	</DeploymentArtifacts>
+</NodeTypeImplementation><ArtifactTemplate id="LiferayPT" type="PuppetTemplate" >
+	<ArtifactReferences>
+		<ArtifactReference reference="Templates/LiferayPT.ftl"/>
+	</ArtifactReferences>
+</ArtifactTemplate><ArtifactTemplate id="LiferayPM" type="PuppetModule" >
+	<Properties xmlns:co="http://docs.oasis-open.org/tosca/ns/2011/12/CloudOptingTypes">
+		<co:PuppetModuleProperties>
+			<co:module>liferay</co:module>
+			<co:git>https://github.com/gioppoluca/puppet-liferay.git</co:git>
+		</co:PuppetModuleProperties>
+	</Properties>
+</ArtifactTemplate><NodeType color="#ffffff" image="postgresqldb.png" name="PostgreSQLDatabase" shape="ellipse" >
+	<DerivedFrom typeRef="root"/>
+	<PropertiesDefinition element="PostgreSQLDatabaseProperties" type="tPostgreSQLDatabaseProperties"/>
+	<Interfaces>
+		<Interface name="Install">
+			<Operation name="compilePuppetTemplateHierarchy"/>
+		</Interface>
+	</Interfaces>
+</NodeType><NodeTypeImplementation name="PostgreSQLDatabaseImpl" nodeType="PostgreSQLDatabase" >
+	<DeploymentArtifacts>
+		<DeploymentArtifact artifactRef="PostgreSQLDatabasePT" artifactType="PuppetTemplate" name="PostgreSQLDatabasePT.ftl">
+		</DeploymentArtifact>
+	</DeploymentArtifacts>
+</NodeTypeImplementation><ArtifactTemplate id="PostgreSQLDatabasePT" type="PuppetTemplate" >
+	<ArtifactReferences>
+		<ArtifactReference reference="Templates/PostgreSQLDatabasePT.ftl"/>
+	</ArtifactReferences>
+</ArtifactTemplate><RelationshipType color="#992222" image="docker.png" name="containerLink" style="dotted" >
+</RelationshipType><NodeType color="#ffffff" image="solr.png" name="Solr" shape="ellipse" >
+	<DerivedFrom typeRef="root"/>
+	<PropertiesDefinition element="SolrProperties" type="tSolrProperties"/>
+	<Interfaces>
+		<Interface name="Install">
+			<Operation name="compilePuppetTemplateHierarchy"/>
+		</Interface>
+	</Interfaces>
+</NodeType><NodeTypeImplementation name="SolrImpl" nodeType="Solr" >
+	<DeploymentArtifacts>
+		<DeploymentArtifact artifactRef="SolrPT" artifactType="PuppetTemplate" name="SolrPT.ftl">
+		</DeploymentArtifact>
+		<DeploymentArtifact artifactRef="SolrPM" artifactType="PuppetModule">
+		</DeploymentArtifact>
+	</DeploymentArtifacts>
+</NodeTypeImplementation><ArtifactTemplate id="SolrPT" type="PuppetTemplate" >
+	<ArtifactReferences>
+		<ArtifactReference reference="Templates/SolrPT.ftl"/>
+	</ArtifactReferences>
+</ArtifactTemplate><ArtifactTemplate id="SolrPM" type="PuppetModule" >
+	<Properties xmlns:co="http://docs.oasis-open.org/tosca/ns/2011/12/CloudOptingTypes">
+		<co:PuppetModuleProperties>
+			<co:module>solr</co:module>
+			<co:git>https://bitbucket.org/landcareresearch/puppet-solr.git</co:git>
+		</co:PuppetModuleProperties>
+	</Properties>
+</ArtifactTemplate><NodeType color="#332299" image="docker.png" name="MongoDB" shape="ellipse" >
+	<DerivedFrom typeRef="root"/>
+	<PropertiesDefinition element="MongoDBProperties" type="tMongoDBProperties"/>
+	<Interfaces>
+		<Interface name="Install">
+			<Operation name="compilePuppetTemplateHierarchy"/>
+		</Interface>
+	</Interfaces>
+	<CapabilityDefinitions>
+		<CapabilityDefinition capabilityType="portsExposeCaps"/>
+	</CapabilityDefinitions>
+</NodeType><NodeTypeImplementation name="MongoDBImpl" nodeType="MongoDB" >
+	<DeploymentArtifacts>
+		<DeploymentArtifact artifactRef="MongoDBPT" artifactType="PuppetTemplate" name="MongoDBPT.ftl">
+		</DeploymentArtifact>
+		<DeploymentArtifact artifactRef="MongoDBPM" artifactType="PuppetModule">
+		</DeploymentArtifact>
+	</DeploymentArtifacts>
+</NodeTypeImplementation><ArtifactTemplate id="MongoDBPT" type="PuppetTemplate" >
+	<ArtifactReferences>
+		<ArtifactReference reference="Templates/MongoDBPT.ftl"/>
+	</ArtifactReferences>
+</ArtifactTemplate><ArtifactTemplate id="MongoDBPM" type="PuppetModule" >
+	<Properties xmlns:co="http://docs.oasis-open.org/tosca/ns/2011/12/CloudOptingTypes">
+		<co:PuppetModuleProperties>
+			<co:module>mongodb</co:module>
+			<co:git>https://github.com/puppetlabs/puppetlabs-mongodb</co:git>
+		</co:PuppetModuleProperties>
+	</Properties>
+</ArtifactTemplate><NodeType color="#ffffff" image="vmhost.png" name="VMHost" shape="rectangle" >
+	<DerivedFrom typeRef="root"/>
+	<PropertiesDefinition element="VMhostProperties" type="tVMhostProperties"/>
+</NodeType><NodeType color="#332299" image="docker.png" name="Wordpress" shape="pentagon" >
+	<DerivedFrom typeRef="root"/>
+	<PropertiesDefinition element="WordpressProperties" type="tWordpressProperties"/>
+	<Interfaces>
+		<Interface name="Install">
+			<Operation name="compilePuppetTemplateHierarchy"/>
+		</Interface>
+	</Interfaces>
+</NodeType><NodeTypeImplementation name="WordpressImpl" nodeType="Wordpress" >
+	<DeploymentArtifacts>
+		<DeploymentArtifact artifactRef="WordpressPT" artifactType="PuppetTemplate" name="WordpressPT.ftl">
+		</DeploymentArtifact>
+	</DeploymentArtifacts>
+</NodeTypeImplementation><ArtifactTemplate id="WordpressPT" type="PuppetTemplate" >
+	<ArtifactReferences>
+		<ArtifactReference reference="Templates/WordpressPT.ftl"/>
+	</ArtifactReferences>
+</ArtifactTemplate><NodeType color="#332299" image="docker.png" name="CronJob" shape="ellipse" >
+	<DerivedFrom typeRef="root"/>
+	<PropertiesDefinition element="CronJobProperties" type="tCronJobProperties"/>
+	<Interfaces>
+		<Interface name="Install">
+			<Operation name="compilePuppetTemplateHierarchy"/>
+		</Interface>
+	</Interfaces>
+</NodeType><NodeTypeImplementation name="CronJobImpl" nodeType="CronJob" >
+	<DeploymentArtifacts>
+		<DeploymentArtifact artifactRef="CronJobPT" artifactType="PuppetTemplate" name="CronJobPT.ftl">
+		</DeploymentArtifact>
+	</DeploymentArtifacts>
+</NodeTypeImplementation><ArtifactTemplate id="CronJobPT" type="PuppetTemplate" >
+	<ArtifactReferences>
+		<ArtifactReference reference="Templates/CronJobPT.ftl"/>
+	</ArtifactReferences>
+</ArtifactTemplate><NodeType color="#ffffff" image="docker.png" name="DockerContainer" shape="pentagon" >
+	<DerivedFrom typeRef="root"/>
+	<PropertiesDefinition element="DockerContainerProperties" type="tDockerContainerProperties"/>
+	<Interfaces>
+		<Interface name="Install">
+			<Operation name="writePuppetDockerTemplateHierarchy"/>
+		</Interface>
+	</Interfaces>
+	<CapabilityDefinitions>
+		<CapabilityDefinition capabilityType="DockerContainerPortsCaps"/>
+	</CapabilityDefinitions>
+</NodeType><NodeTypeImplementation name="DockerContainerImpl" nodeType="DockerContainer" >
+	<DeploymentArtifacts>
+		<DeploymentArtifact artifactRef="DockerContainerDT" artifactType="DockerfileTemplate" name="ClearoApacheDC.dockerfile">
+		</DeploymentArtifact>
+		<DeploymentArtifact artifactRef="DockerContainerPT" artifactType="PuppetTemplate" name="sd">
+		</DeploymentArtifact>
+	</DeploymentArtifacts>
+</NodeTypeImplementation><ArtifactTemplate id="DockerContainerDT" name="" type="DockerfileTemplate" >
+	<ArtifactReferences>
+		<ArtifactReference reference="Templates/DockerContainerDT.ftl"/>
+	</ArtifactReferences>
+</ArtifactTemplate><ArtifactTemplate id="DockerContainerPT" name="" type="PuppetTemplate" >
+	<ArtifactReferences>
+		<ArtifactReference reference="Templates/DockerContainerPT.ftl"/>
+	</ArtifactReferences>
+</ArtifactTemplate><NodeType color="#ffffff" image="postgresql.png" name="PostgreSQL" shape="ellipse" >
+	<DerivedFrom typeRef="root"/>
+	<PropertiesDefinition element="PostgreSQLProperties" type="tPostgreSQLProperties"/>
+	<Interfaces>
+		<Interface name="Install">
+			<Operation name="compilePuppetTemplateHierarchy"/>
+		</Interface>
+	</Interfaces>
+	<CapabilityDefinitions>
+		<CapabilityDefinition capabilityType="portsExposeCaps"/>
+	</CapabilityDefinitions>
+</NodeType><NodeTypeImplementation name="PostgreSQLImpl" nodeType="PostgreSQL" >
+	<DeploymentArtifacts>
+		<DeploymentArtifact artifactRef="PostgreSQLPT" artifactType="PuppetTemplate" name="PostgreSQLPT.ftl">
+		</DeploymentArtifact>
+		<DeploymentArtifact artifactRef="PostgreSQLPM" artifactType="PuppetModule">
+		</DeploymentArtifact>
+	</DeploymentArtifacts>
+</NodeTypeImplementation><ArtifactTemplate id="PostgreSQLPT" type="PuppetTemplate" >
+	<ArtifactReferences>
+		<ArtifactReference reference="Templates/PostgreSQLPT.ftl"/>
+	</ArtifactReferences>
+</ArtifactTemplate><ArtifactTemplate id="PostgreSQLPM" type="PuppetModule" >
+	<Properties xmlns:co="http://docs.oasis-open.org/tosca/ns/2011/12/CloudOptingTypes">
+		<co:PuppetModuleProperties>
+			<co:module>postgresql</co:module>
+			<co:git>https://github.com/puppetlabs/puppetlabs-postgresql</co:git>
+		</co:PuppetModuleProperties>
+	</Properties>
+</ArtifactTemplate><NodeType color="#ffffff" image="tomcat.png" name="Tomcat" shape="ellipse" >
 	<DerivedFrom typeRef="root"/>
 	<PropertiesDefinition element="TomcatProperties" type="tTomcatProperties"/>
 	<Interfaces>
