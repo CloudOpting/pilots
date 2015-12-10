@@ -1,0 +1,10 @@
+exp09-app:
+  image: ciprianpavel/exp09app
+  ports:
+    - "8080:8080"
+  links:
+    - exp09-db
+exp09-db:
+  image: ciprianpavel/exp09db
+  volumes:
+    - ~/exp09data:/var/lib/mysql
