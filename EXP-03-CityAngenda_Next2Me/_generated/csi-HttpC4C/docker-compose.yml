@@ -37,6 +37,8 @@ HttpC4C_DC:
    - "443:443"
    - "80:80"
    - "443:443"
+   - "80:80"
+   - "443:443"
   log_driver: "fluentd"
   log_opt:
     fluentd-address: "84.240.187.4:4044"
@@ -50,6 +52,27 @@ HttpC4C_DC:
 
 
   ports:
+   - "80:80"
+   - "443:443"
+   - "80:80"
+   - "443:443"
+   - "80:80"
+   - "443:443"
+  log_driver: "fluentd"
+  log_opt:
+    fluentd-address: "84.240.187.4:4044"
+    labels: eu.cloudopting.log 
+
+
+  volumes:
+    - 
+HttpC4C_DC:
+  image: cloudopting/csi_httpc4c_dc
+
+
+  ports:
+   - "80:80"
+   - "443:443"
    - "80:80"
    - "443:443"
    - "80:80"
