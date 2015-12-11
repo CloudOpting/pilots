@@ -48,5 +48,5 @@ package { 'install_ckan_source':
   file { '/etc/ckan/default/production.ini':
   ensure  => 'file',
   content => template('/tmp/production.ini.erb'),
-  require => Package'install_ckan_source'],
+  require => Package['install_ckan_source'],
 }
