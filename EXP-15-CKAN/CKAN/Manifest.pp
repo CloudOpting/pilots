@@ -44,7 +44,7 @@ package { 'install_ckan_source':
   source   =>"/python-ckan_2.4-trusty_amd64.deb",
   require => Exec['download_ckan'],
 }
-CKAN CONFIG FILE CREATION
+#CKAN CONFIG FILE CREATION
   file { ' /etc/ckan/default/production.ini':
   ensure  => 'file',
   content => template('production.ini.erb'),
