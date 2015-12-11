@@ -1,23 +1,10 @@
-# Use base
 FROM cloudopting/ubuntubase:14.04
-MAINTAINER
-
-# OPTIONAL:
-
-### Specific application stuff
-RUN git clone https://github.com/someorg/somerepo
-RUN apt-get -yq update && apt-get install -y some-packages
-
-### Cleaning
-RUN apt-get clean && rm -rf /var/lib/apt /var/cache/apt/archives/* /tmp/*
-
-
-# MANDATORY IF YOU WANT TO APPLY A PUPPET MANIFEST:
-### Add puppet modules
-ADD modules /tmp/modules
-
-### Add manifest to apply
-ADD images/apache/manifest.pp /tmp/manifest.pp
-
-### Apply manifest
-RUN puppet apply --modulepath=/tmp/modules /tmp/manifest.p
+MAINTAINER IMI
+RUN echo '#!/bin/bash\necho "N 2"\n' > /sbin/runlevel
+RUN chmod 755 /sbin/runlevel
+RUN apt-get -yq update
+RUN puppet module install puppetlabs-postgresql
+ADD Manifest.pp /tmp/Manifest.pp
+RUN puppet apply /tmp/Manifest.pp
+EXPOSE 5432
+CMD ["/etc/init.d/postgresql","start"]
