@@ -1,5 +1,4 @@
 #GLOBAL VARIABLES FOR CKAN 
-
 $imi_CKAN_site_id               ="default"
 $imi_CKAN_site_url              ="ckan.cloudopting.eu"
 $imi_CKAN_site_title            ="CloudOpting Open Data portal"
@@ -9,12 +8,6 @@ $solr_url                       ="http://172.17.0.2:8983/solr/ckan"
 $db_name                        ="ckan"
 $db_user                        ="ckan"
 $db_pass                        ="ckan"
-
-
-
-
-
-
 
 #INSTALL CKAN
 #INSTALL PACKAGES
@@ -34,11 +27,11 @@ exec { 'download_ckan':
   require => Package['wget'],
 }
 
-exec { 'install_ckan_source':
-  command => 'dpkg -i python-ckan_2.4-trusty_amd64.deb',
-  path    => '/usr/bin/:/bin/:/usr/bin/dpkg/',
-  require => Exec['download_ckan'],
-}
+#exec { 'install_ckan_source':
+#  command => 'dpkg -i python-ckan_2.4-trusty_amd64.deb',
+#  path    => '/usr/bin/:/bin/:/usr/bin/dpkg/',
+#  require => Exec['download_ckan'],
+#}
 package { 'install_ckan_source':
   provider => 'dpkg',
   source   =>"/python-ckan_2.4-trusty_amd64.deb",
