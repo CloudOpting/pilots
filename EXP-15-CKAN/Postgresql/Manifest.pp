@@ -30,5 +30,5 @@ postgresql::server::role { 'ckan':
 }
 exec { 'change_locale':
     command => 'locale-gen en_US en_US.UTF-8',
-    path    => '/usr/bin/:/bin/',
+    path    => '/usr/sbin/:/bin/',
 }
