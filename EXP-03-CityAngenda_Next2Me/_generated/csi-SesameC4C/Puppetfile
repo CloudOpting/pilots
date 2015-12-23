@@ -72,54 +72,6 @@ mod 'mongodb',
 mod 'postgresql',
   :git => 'https://github.com/puppetlabs/puppetlabs-postgresql'
 
-mod 'tomcat',
-  :git => 'https://github.com/puppetlabs/puppetlabs-tomcat'
-
-mod 'liferay',
-  :git => 'https://github.com/gioppoluca/puppet-liferay.git'
-
-mod 'apache',
-  :git => 'https://github.com/puppetlabs/puppetlabs-apache'
-
-mod 'rmueller-cron',
-  :git => 'https://github.com/roman-mueller/rmueller-cron'
-
-mod 'mysql',
-  :git => 'https://github.com/puppetlabs/puppetlabs-mysql'
-
-mod 'solr',
-  :git => 'https://bitbucket.org/landcareresearch/puppet-solr.git'
-
-mod 'mongodb',
-  :git => 'https://github.com/puppetlabs/puppetlabs-mongodb'
-
-mod 'postgresql',
-  :git => 'https://github.com/puppetlabs/puppetlabs-postgresql'
-
-mod 'tomcat',
-  :git => 'https://github.com/puppetlabs/puppetlabs-tomcat'
-
-mod 'liferay',
-  :git => 'https://github.com/gioppoluca/puppet-liferay.git'
-
-mod 'apache',
-  :git => 'https://github.com/puppetlabs/puppetlabs-apache'
-
-mod 'rmueller-cron',
-  :git => 'https://github.com/roman-mueller/rmueller-cron'
-
-mod 'mysql',
-  :git => 'https://github.com/puppetlabs/puppetlabs-mysql'
-
-mod 'solr',
-  :git => 'https://bitbucket.org/landcareresearch/puppet-solr.git'
-
-mod 'mongodb',
-  :git => 'https://github.com/puppetlabs/puppetlabs-mongodb'
-
-mod 'postgresql',
-  :git => 'https://github.com/puppetlabs/puppetlabs-postgresql'
-
 
 mod 'concat',
   :git => 'https://github.com/puppetlabs/puppetlabs-concat'
