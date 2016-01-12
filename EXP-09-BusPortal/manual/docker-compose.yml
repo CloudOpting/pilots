@@ -8,3 +8,4 @@ exp09-db:
   image: ciprianpavel/exp09db
   volumes:
     - ~/exp09data:/var/lib/mysql
+    - ~/exp09dataconf:/etc/mysql/conf.d
