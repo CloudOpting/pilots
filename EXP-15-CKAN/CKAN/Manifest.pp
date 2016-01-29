@@ -3,18 +3,12 @@ $imi_CKAN_site_id               ="default"
 $imi_CKAN_site_url              ="ckan.cloudopting.eu"
 $imi_CKAN_site_title            ="CloudOpting Open Data portal"
 $imi_CKAN_site_description      ="A Public portal for openData basded on CKAN and deployed trough CloudOpting"
-$sqlalchemy                     ="postgresql://ckan:ckan@172.17.0.3:5432/ckan"
-$solr_url                       ="http://172.17.0.2:8983/solr/ckan"
 $db_name                        ="ckan"
 $db_user                        ="ckan"
 $db_pass                        ="ckan"
 
-$hOME                           ="/root"
-$cKAN_VERSION                   ="2.2.3"
-$cKAN                           ="ckan-$cKAN_VERSION"
 $cKAN_HOME                      ="/usr/lib/ckan/default"
 $cKAN_CONFIG                    ="/etc/ckan/default"
-$cKAN_DATA                      ="/var/lib/ckan"
 
 #INSTALL PACKAGES
     exec { 'apt-get update':  path => '/usr/bin',}->
