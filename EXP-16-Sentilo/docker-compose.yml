@@ -1,0 +1,17 @@
+mysql:
+  image: mariadb:10.0.22
+  container_name: sentilo-mysql
+  volumes:
+    - ./mysql-db-dump:/docker-entrypoint-init.db.d
+  environment:
+    MYSQL_ROOT_PASSWORD: root
+sentilo-app:
+  build: sentilo-app
+  container_name: sentilo
+  links:
+    - mysql
+  volumes_from:
+    - mysql:rw
+  ports:
+    - "8080:8080"
+    - "8081:8081"
