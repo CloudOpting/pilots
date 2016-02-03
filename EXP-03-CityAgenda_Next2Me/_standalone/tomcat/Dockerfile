@@ -7,9 +7,6 @@ ENV CATALINA_HOME /opt/apache-tomcat/tomcat8
 ENV PATH $CATALINA_HOME/bin:$PATH
 WORKDIR $CATALINA_HOME
 
-#update
-RUN apt-get -yq update
-
 #Add wars that has to be deployed
 #ADD cloud4cities-webapp-api.war /tmp/cloud4cities-webapp-api.war
 #ADD cloud4cities-webapp-solr.war /tmp/cloud4cities-webapp-solr.war
