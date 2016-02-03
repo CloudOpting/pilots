@@ -1,0 +1,23 @@
+EXP-03-CityAgenda_Next2Me/_standalone/mongo/db/admin/admin.0 filter=lfs diff=lfs merge=lfs -text
+EXP-03-CityAgenda_Next2Me/_standalone/mongo/db/admin/admin.1 filter=lfs diff=lfs merge=lfs -text
+EXP-03-CityAgenda_Next2Me/_standalone/mongo/db/admin/admin.ns filter=lfs diff=lfs merge=lfs -text
+
+EXP-03-CityAgenda_Next2Me/_standalone/mongo/db/cloud4cities/cloud4cities.0 filter=lfs diff=lfs merge=lfs -text
+EXP-03-CityAgenda_Next2Me/_standalone/mongo/db/cloud4cities/cloud4cities.1 filter=lfs diff=lfs merge=lfs -text
+EXP-03-CityAgenda_Next2Me/_standalone/mongo/db/cloud4cities/cloud4cities.2 filter=lfs diff=lfs merge=lfs -text
+EXP-03-CityAgenda_Next2Me/_standalone/mongo/db/cloud4cities/cloud4cities.3 filter=lfs diff=lfs merge=lfs -text
+EXP-03-CityAgenda_Next2Me/_standalone/mongo/db/cloud4cities/cloud4cities.4 filter=lfs diff=lfs merge=lfs -text
+EXP-03-CityAgenda_Next2Me/_standalone/mongo/db/cloud4cities/cloud4cities.5 filter=lfs diff=lfs merge=lfs -text
+EXP-03-CityAgenda_Next2Me/_standalone/mongo/db/cloud4cities/cloud4cities.6 filter=lfs diff=lfs merge=lfs -text
+EXP-03-CityAgenda_Next2Me/_standalone/mongo/db/cloud4cities/cloud4cities.7 filter=lfs diff=lfs merge=lfs -text
+EXP-03-CityAgenda_Next2Me/_standalone/mongo/db/cloud4cities/cloud4cities.ns filter=lfs diff=lfs merge=lfs -text
+
+EXP-03-CityAgenda_Next2Me/_standalone/mongo/db/journal/j._0 filter=lfs diff=lfs merge=lfs -text
+EXP-03-CityAgenda_Next2Me/_standalone/mongo/db/journal/lsn filter=lfs diff=lfs merge=lfs -text
+EXP-03-CityAgenda_Next2Me/_standalone/mongo/db/journal/prealloc.1 filter=lfs diff=lfs merge=lfs -text
+EXP-03-CityAgenda_Next2Me/_standalone/mongo/db/journal/prealloc.2 filter=lfs diff=lfs merge=lfs -text
+
+EXP-03-CityAgenda_Next2Me/_standalone/mongo/db/local/local.0 filter=lfs diff=lfs merge=lfs -text
+EXP-03-CityAgenda_Next2Me/_standalone/mongo/db/local/local.ns filter=lfs diff=lfs merge=lfs -text
+
+EXP-03-CityAgenda_Next2Me/_standalone/mongo/db/mongod.lock filter=lfs diff=lfs merge=lfs -text
