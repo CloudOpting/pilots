@@ -7,9 +7,6 @@ ENV CATALINA_HOME /opt/apache-tomcat/tomcat8
 ENV PATH $CATALINA_HOME/bin:$PATH
 WORKDIR $CATALINA_HOME
 
-#update
-RUN apt-get -yq update
-
 #Add wars that has to be deployed
 #ADD openrdf-sesame.war /tmp/openrdf-sesame.war
 #ADD openrdf-workbench.war /tmp/openrdf-workbench.war
