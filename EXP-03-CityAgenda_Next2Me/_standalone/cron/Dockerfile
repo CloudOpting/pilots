@@ -5,10 +5,6 @@ MAINTAINER Xavier Cases Camats xavier.cases@worldline.com
 #Environment variables
 WORKDIR 
 
-#update
-RUN apt-get -yq update
-
-
 #
 # PUPPET MODULES
 #
