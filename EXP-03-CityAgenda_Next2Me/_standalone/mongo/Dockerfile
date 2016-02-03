@@ -5,12 +5,8 @@ MAINTAINER Xavier Cases Camats xavier.cases@worldline.com
 #Environment variables
 WORKDIR /worldline/mongo-cloud4cities/data
 
-#update
-RUN apt-get -yq update
-
 #Add configuration
-#The data is too big to put it here!!(2.7GB)
-#ADD db /data/db
+ADD db /data/db
 
 #
 # PUPPET MODULES
