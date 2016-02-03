@@ -9,9 +9,6 @@ RUN mkdir -p "$HTTPD_PREFIX" \
 	&& chown www-data:www-data "$HTTPD_PREFIX"
 WORKDIR $HTTPD_PREFIX
 
-#update
-RUN apt-get -yq update
-
 #Add configuration
 ADD data /usr/local/apache2/htdocs
 ADD httpd.conf /usr/local/apache2/conf/httpd.conf
