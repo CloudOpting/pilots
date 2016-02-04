@@ -22,3 +22,4 @@ For an hungry eye the high level description of the structure follows :
 
 - [Puppet recommendations](documentation/puppet.md)
 - [Docker recommendations](documentation/docker.md)
+- [Example Docker+Puppet](documentation/example.md)
