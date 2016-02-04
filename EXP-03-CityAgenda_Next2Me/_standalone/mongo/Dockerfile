@@ -6,7 +6,8 @@ MAINTAINER Xavier Cases Camats xavier.cases@worldline.com
 WORKDIR /worldline/mongo-cloud4cities/data
 
 #Add configuration
-ADD db /data/db
+#TODO: The intitial configuration needs to be placed somwhere in internet.
+#ADD db /data/db
 
 #
 # PUPPET MODULES
