@@ -1,0 +1,77 @@
+http_c4c:
+#  image: httpd:2.4.12
+  build: ./apache
+  privileged: true
+  restart: always
+  hostname: http_c4c
+  container_name: http_c4c
+  ports:
+   - "80:80"
+   - "443:443"
+#  volumes:
+#   - "/worldline/http-cloud4cities/data:/usr/local/apache2/htdocs"
+#   - "/worldline/http-cloud4cities/cfg/httpd.conf:/usr/local/apache2/conf/httpd.conf"
+#   - "/worldline/http-cloud4cities/cfg/users.userdb:/usr/local/apache2/conf/users.userdb"
+  links:
+   - tomcat_c4c:tomcat_c4c
+   - tomcat_sesame_c4c:tomcat_sesame_c4c
+   - cron_batch_c4c:cron_batch_c4c
+tomcat_c4c:
+#  image: tomcat:7.0.62-jre7
+  build: ./tomcat
+  privileged: true
+  restart: always
+  hostname: tomcat_c4c
+  container_name: tomcat_c4c
+#  environment:
+#   JAVA_OPTS: " -Xms512m -Xmx2g -XX:MaxPermSize=512m -Dsolr.solr.home=/worldline/tomcat-cloud4cities/data/solr -Dsolr.backoffice.server.properties=file:/worldline/tomcat-cloud4cities/cfg/application.properties -Dmongo.backoffice.server.properties=file:/worldline/tomcat-cloud4cities/cfg/application.properties -Dsolr.api.server.properties=file:/worldline/tomcat-cloud4cities/cfg/application.properties -Dmongo.api.server.properties=file:/worldline/tomcat-cloud4cities/cfg/application.properties -Dpoccass.app_api.server.properties=file:/worldline/tomcat-cloud4cities/cfg/application_app_api.properties -Dpoccass.batch.server.properties=file:/worldline/tomcat-cloud4cities/cfg/application_batch.properties -Dpoccass.device_api.server.properties=file:/worldline/tomcat-cloud4cities/cfg/application_device_api.properties"
+#  volumes:
+#   - "/worldline/tomcat-cloud4cities/cfg:/worldline/tomcat-cloud4cities/cfg"
+#   - "/worldline/tomcat-cloud4cities/data:/worldline/tomcat-cloud4cities/data"
+#   - "/worldline/tomcat-cloud4cities/log:/worldline/tomcat-cloud4cities/log"
+#   - "/worldline/tomcat-cloud4cities/app:/usr/local/tomcat/webapps"
+  links:
+   - mongo_c4c:mongo_c4c
+mongo_c4c:
+#  image: mongo:2.4 
+  build: ./mongo
+  privileged: true
+  restart: always
+  hostname: mongo_c4c
+  container_name: mongo_c4c
+#  working_dir: /worldline/mongo-cloud4cities/data
+#  command: mongod --smallfiles --directoryperdb --auth
+  ports:
+   - "27017:27017"
+#  volumes:
+#   - "/worldline/mongo-cloud4cities/data/db:/data/db"
+#   - "/worldline/mongo-cloud4cities/conf:/worldline/mongo-cloud4cities/conf"
+tomcat_sesame_c4c:
+#  image: tomcat:7.0.62-jre7
+  build: ./sesame
+  privileged: true
+  restart: always
+  hostname: tomcat_sesame_c4c
+  container_name: tomcat_sesame_c4c
+  ports:
+   - "8080:8080"
+#  environment:
+#    JAVA_OPTS: " -Xms512m -Xmx2g  -Dinfo.aduna.platform.appdata.basedir=/worldline/tomcat-sesame-cloud4cities/data/aduna"
+#  volumes:
+#   - "/worldline/tomcat-sesame-cloud4cities/log:/usr/local/tomcat/logs"
+#   - "/worldline/tomcat-sesame-cloud4cities/app:/usr/local/tomcat/webapps"
+#   - "/worldline/tomcat-sesame-cloud4cities/data/aduna:/worldline/tomcat-sesame-cloud4cities/data/aduna"
+cron_batch_c4c:
+#  image: jordiescudero/cloud4cities-cron:v1
+  build: ./cron
+  privileged: true
+  restart: always
+  hostname: cron_batch_c4c
+  container_name: cron_batch_c4c
+#  volumes:
+#   - "/worldline/batch-cloud4cities:/worldline/batch-cloud4cities"  
+  links:
+   - tomcat_c4c:tomcat_c4c
+   - tomcat_sesame_c4c:tomcat_sesame_c4c
+   - mongo_c4c:mongo_c4c
+
