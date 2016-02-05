@@ -1,6 +1,8 @@
 Example: Build a MySQL container with the following files:
 
-## puppetfile
+# 1. Create the files.
+
+## Puppetfile
 
 Contains the [mysql module](https://forge.puppetlabs.com/puppetlabs/mysql) and it [dependencies](https://forge.puppetlabs.com/puppetlabs/mysql/dependencies).
 
@@ -34,7 +36,7 @@ ADD images/mysql3/manifest.pp /tmp/manifest.pp
 RUN puppet apply --modulepath=/tmp/modules /tmp/manifest.pp
 ```
 
-## Manifest
+## Manifest (manifest.pp)
 
 Taken from the [puppetlab-mysql repo](https://github.com/puppetlabs/puppetlabs-mysql/blob/master/examples/mysql_db.pp).
 
@@ -57,8 +59,41 @@ mysql::db { "mydb_${fqdn}":
   tag      => $domain,
 }
 ```
- 
-## Log
+
+After creating all files you will have this filesystem tree:
+```console
+.
+├── Dockerfile
+├── manifest.pp
+└── Puppetfile
+```
+
+# 2. Install modules and build the docker image.
+
+To install the modules you have to follow this instructions.
+
+Assuming you have ruby installed, you have to:
+ 1. Install 'r10k' with ``gem install r10k``
+ 2. Execute the command ``r10k puppetfile install``
+
+Then the filesystem tree will look like the following sample and you are ready to go on:
+```console
+.
+├── Dockerfile
+├── manifest.pp
+├── modules
+│   ├── mysql
+│   ├── staging
+│   └── stdlib
+└── Puppetfile
+```
+
+Then you will be able to create you image executing the following command:
+```console
+docker build .
+```
+
+# 3. The logs will be similar to the following
 
 ```
 Step 1 : FROM cloudopting/centosbase:6.6
