@@ -1,0 +1,13 @@
+mongo_c4c:
+  image: mongo:2.4 
+  privileged: true
+  restart: always
+  hostname: mongo_c4c
+  container_name: mongo_c4c
+  working_dir: /worldline/mongo-cloud4cities/data
+  command: mongod --smallfiles --directoryperdb --auth
+  ports:
+   - "27017:27017"
+  volumes:
+   - "/worldline/mongo-cloud4cities/data/db:/data/db"
+   - "/worldline/mongo-cloud4cities/conf:/worldline/mongo-cloud4cities/conf"

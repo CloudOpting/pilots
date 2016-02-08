@@ -1,0 +1,16 @@
+tomcat_c4c:
+#  image: tomcat:7.0.62-jre7
+  build: ./tomcat
+  privileged: true
+  restart: always
+  hostname: tomcat_c4c
+  container_name: tomcat_c4c
+#  environment:
+#   JAVA_OPTS: " -Xms512m -Xmx2g -XX:MaxPermSize=512m -Dsolr.solr.home=/worldline/tomcat-cloud4cities/data/solr -Dsolr.backoffice.server.properties=file:/worldline/tomcat-cloud4cities/cfg/application.properties -Dmongo.backoffice.server.properties=file:/worldline/tomcat-cloud4cities/cfg/application.properties -Dsolr.api.server.properties=file:/worldline/tomcat-cloud4cities/cfg/application.properties -Dmongo.api.server.properties=file:/worldline/tomcat-cloud4cities/cfg/application.properties -Dpoccass.app_api.server.properties=file:/worldline/tomcat-cloud4cities/cfg/application_app_api.properties -Dpoccass.batch.server.properties=file:/worldline/tomcat-cloud4cities/cfg/application_batch.properties -Dpoccass.device_api.server.properties=file:/worldline/tomcat-cloud4cities/cfg/application_device_api.properties"
+#  volumes:
+#   - "/worldline/tomcat-cloud4cities/cfg:/worldline/tomcat-cloud4cities/cfg"
+#   - "/worldline/tomcat-cloud4cities/data:/worldline/tomcat-cloud4cities/data"
+#   - "/worldline/tomcat-cloud4cities/log:/worldline/tomcat-cloud4cities/log"
+#   - "/worldline/tomcat-cloud4cities/app:/usr/local/tomcat/webapps"
+  external_links:
+   - mongo_c4c:mongo_c4c
