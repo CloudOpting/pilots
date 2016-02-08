@@ -1,0 +1,13 @@
+exp08-app:
+  image: ciprianpavel/exp08app
+  ports:
+    - "8080:8080"
+  links:
+    - exp08-db
+exp08-db:
+  image: ciprianpavel/exp08db
+  volumes:
+    - ~/exp08data:/var/lib/mysql
+    - ~/exp08dataconf:/etc/mysql/conf.d
+  ports:
+    - "3307:3306"

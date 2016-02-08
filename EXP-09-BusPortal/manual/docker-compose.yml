@@ -9,3 +9,5 @@ exp09-db:
   volumes:
     - ~/exp09data:/var/lib/mysql
     - ~/exp09dataconf:/etc/mysql/conf.d
+  ports:
+    - "3307:3306"
