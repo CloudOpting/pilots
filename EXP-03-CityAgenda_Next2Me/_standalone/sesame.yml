@@ -1,0 +1,15 @@
+tomcat_sesame_c4c:
+#  image: tomcat:7.0.62-jre7
+  build: ./sesame
+  privileged: true
+  restart: always
+  hostname: tomcat_sesame_c4c
+  container_name: tomcat_sesame_c4c
+  ports:
+   - "8080:8080"
+#  environment:
+#    JAVA_OPTS: " -Xms512m -Xmx2g  -Dinfo.aduna.platform.appdata.basedir=/worldline/tomcat-sesame-cloud4cities/data/aduna"
+#  volumes:
+#   - "/worldline/tomcat-sesame-cloud4cities/log:/usr/local/tomcat/logs"
+#   - "/worldline/tomcat-sesame-cloud4cities/app:/usr/local/tomcat/webapps"
+#   - "/worldline/tomcat-sesame-cloud4cities/data/aduna:/worldline/tomcat-sesame-cloud4cities/data/aduna"

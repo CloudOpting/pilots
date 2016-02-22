@@ -46,6 +46,12 @@ file { "${cKAN_HOME}":
     group  => 'root',
     mode   => '0750',
   }->
+file { '/var/cache/nginx'}":
+    ensure => directory,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0750',
+}->
 file { "${cKAN_CONFIG}":
     ensure => directory,
     owner  => 'root',

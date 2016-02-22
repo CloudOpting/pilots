@@ -1,7 +1,0 @@
-CA-Meta-Version: 1.0
-CSAR-Version: 1.0
-Created-By: WORLDLINE
-Entry-Definitions: Definitions/CityAgenda_Next2Me-Definitions.xml
-
-Name: Templates/Dockerfile.ftl
-Content-Type: text/plain

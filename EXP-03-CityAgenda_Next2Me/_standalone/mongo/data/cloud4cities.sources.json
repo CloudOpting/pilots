@@ -1,0 +1,39 @@
+{ "_id" : "badalona01", "description" : "badalona01", "city" : { "$ref" : "cities", "$id" : "badalona" } }
+{ "_id" : "badalonaDailyActivities", "description" : "Badalona Daily Activities", "city" : { "$ref" : "cities", "$id" : "badalona" } }
+{ "_id" : "barcelonaDailyActivities", "description" : "Barcelona Daily Activities", "city" : { "$ref" : "cities", "$id" : "barcelona" } }
+{ "_id" : "barcelonaMonthlyActivities_1", "description" : "Barcelona Monthly Activities 1", "city" : { "$ref" : "cities", "$id" : "barcelona" } }
+{ "_id" : "barcelonaMonthlyActivities_2", "description" : "Barcelona Monthly Activities 2", "city" : { "$ref" : "cities", "$id" : "barcelona" } }
+{ "_id" : "barcelonaMonthlyActivities_3", "description" : "Barcelona Monthly Activities 3", "city" : { "$ref" : "cities", "$id" : "barcelona" } }
+{ "_id" : "barcelonaMonthlyActivities_4", "description" : "Barcelona Monthly Activities 4", "city" : { "$ref" : "cities", "$id" : "barcelona" } }
+{ "_id" : "barcelonaMonthlyActivities_5", "description" : "Barcelona Monthly Activities 5", "city" : { "$ref" : "cities", "$id" : "barcelona" } }
+{ "_id" : "barcelonaSportsActivities", "description" : "Barcelona Sports Activities", "city" : { "$ref" : "cities", "$id" : "barcelona" } }
+{ "_id" : "bcnAdmPub", "description" : "bcnAdmPub", "city" : { "$ref" : "cities", "$id" : "barcelona" } }
+{ "_id" : "bcnAllotjament", "description" : "bcnAllotjament", "city" : { "$ref" : "cities", "$id" : "barcelona" } }
+{ "_id" : "bcnAnPlant", "description" : "bcnAnPlant", "city" : { "$ref" : "cities", "$id" : "barcelona" } }
+{ "_id" : "bcnAssoc", "description" : "bcnAssoc", "city" : { "$ref" : "cities", "$id" : "barcelona" } }
+{ "_id" : "bcnCementiris", "description" : "bcnCementiris", "city" : { "$ref" : "cities", "$id" : "barcelona" } }
+{ "_id" : "bcnComServ", "description" : "bcnComServ", "city" : { "$ref" : "cities", "$id" : "barcelona" } }
+{ "_id" : "bcnComercial", "description" : "bcnComercial", "city" : { "$ref" : "cities", "$id" : "barcelona" } }
+{ "_id" : "bcnComunicacio", "description" : "bcnComunicacio", "city" : { "$ref" : "cities", "$id" : "barcelona" } }
+{ "_id" : "bcnCultura", "description" : "bcnCultura", "city" : { "$ref" : "cities", "$id" : "barcelona" } }
+{ "_id" : "bcnEducacio", "description" : "bcnEducacio", "city" : { "$ref" : "cities", "$id" : "barcelona" } }
+{ "_id" : "bcnEsports", "description" : "bcnEsports", "city" : { "$ref" : "cities", "$id" : "barcelona" } }
+{ "_id" : "bcnInfo", "description" : "bcnInfo", "city" : { "$ref" : "cities", "$id" : "barcelona" } }
+{ "_id" : "bcnMedi", "description" : "bcnMedi", "city" : { "$ref" : "cities", "$id" : "barcelona" } }
+{ "_id" : "bcnReligio", "description" : "bcnReligio", "city" : { "$ref" : "cities", "$id" : "barcelona" } }
+{ "_id" : "bcnRestaurant", "description" : "bcnRestaurant", "city" : { "$ref" : "cities", "$id" : "barcelona" } }
+{ "_id" : "bcnSanitat", "description" : "bcnSanitat", "city" : { "$ref" : "cities", "$id" : "barcelona" } }
+{ "_id" : "bcnServSoc", "description" : "bcnServSoc", "city" : { "$ref" : "cities", "$id" : "barcelona" } }
+{ "_id" : "bcnTrans", "description" : "bcnTrans", "city" : { "$ref" : "cities", "$id" : "barcelona" } }
+{ "_id" : "cornella01", "description" : "cornella01", "city" : { "$ref" : "cities", "$id" : "cornella" } }
+{ "_id" : "cornellaDailyActivities", "description" : "Cornellà Daily Activities", "city" : { "$ref" : "cities", "$id" : "cornella" } }
+{ "_id" : "elPratDailyActivities", "description" : "El Prat Daily Activities", "city" : { "$ref" : "cities", "$id" : "elPrat" } }
+{ "_id" : "elprat01", "description" : "elprat01", "city" : { "$ref" : "cities", "$id" : "elprat" } }
+{ "_id" : "manresa01", "description" : "manresa01", "city" : { "$ref" : "cities", "$id" : "manresa" } }
+{ "_id" : "manresaDailyActivities", "description" : "Manresa Daily Activities", "city" : { "$ref" : "cities", "$id" : "manresa" } }
+{ "_id" : "stCugat01", "description" : "stCugat01", "city" : { "$ref" : "cities", "$id" : "stCugat" } }
+{ "_id" : "stCugatDailyActivities", "description" : "Sant Cugat Daily Activities", "city" : { "$ref" : "cities", "$id" : "stCugat" } }
+{ "_id" : "stFeliu01", "description" : "stFeliu01", "city" : { "$ref" : "cities", "$id" : "stFeliu" } }
+{ "_id" : "stFeliuDailyActivities", "description" : "Sant Feliu Daily Activities", "city" : { "$ref" : "cities", "$id" : "stFeliu" } }
+{ "_id" : "tarragonaDailyActivities", "description" : "Tarragona Daily Activities", "city" : { "$ref" : "cities", "$id" : "tarragona" } }
+{ "_id" : "viladecansDailyActivities", "description" : "Viladecans Daily Activities", "city" : { "$ref" : "cities", "$id" : "viladecans" } }
