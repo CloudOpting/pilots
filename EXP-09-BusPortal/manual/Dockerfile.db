@@ -2,3 +2,6 @@ FROM mysql
 
 ENV MYSQL_ALLOW_EMPTY_PASSWORD=yes
 ENV MYSQL_DATABASE=busportal
+
+
+docker run -d -p 3306:3306 -v ~/exp09data:/var/lib/mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -e MYSQL_DATABASE=busportal mysql
