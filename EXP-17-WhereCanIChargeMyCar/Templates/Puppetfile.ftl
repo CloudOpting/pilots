@@ -4,14 +4,15 @@ mod '<#if module['module']?has_content>${module['module']}</#if>',
 
 </#list>
 
-mod 'puppetlabs-stdlib',
-  :git => "https://github.com/puppetlabs/puppetlabs-stdlib",
-  :ref => "4.9.0"
+mod 'concat',
+  :git => 'https://github.com/puppetlabs/puppetlabs-concat'
 
-mod 'puppetlabs-concat',
-  :git => "https://github.com/puppetlabs/puppetlabs-concat",
-  :ref => "1.2.4"
-
-mod 'puppetlabs-vcsrepo',
-  :git => "https://github.com/puppetlabs/puppetlabs-vcsrepo",
-  :ref => "1.3.1"
+mod 'stdlib',
+  :git => 'https://github.com/puppetlabs/puppetlabs-stdlib'
+  
+mod 'java',
+  :git => 'https://github.com/puppetlabs/puppetlabs-java'
+  
+mod 'staging',
+  :git => 'https://github.com/nanliu/puppet-staging.git'
+  
