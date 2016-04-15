@@ -10,7 +10,7 @@ http_c4c:
   links:
    - tomcat_c4c:tomcat_c4c
    - tomcat_sesame_c4c:tomcat_sesame_c4c
-   - cron_batch_c4c:cron_batch_c4c
+#   - cron_batch_c4c:cron_batch_c4c
    
 tomcat_c4c:
   build: ./tomcat
@@ -39,13 +39,13 @@ tomcat_sesame_c4c:
   ports:
    - "8080:8080"
 
-cron_batch_c4c:
-  build: ./cron
-  privileged: true
-  restart: always
-  hostname: cron_batch_c4c
-  container_name: cron_batch_c4c
-  links:
-   - tomcat_c4c:tomcat_c4c
-   - tomcat_sesame_c4c:tomcat_sesame_c4c
-   - mongo_c4c:mongo_c4c
+#cron_batch_c4c:
+#  build: ./cron
+#  privileged: true
+#  restart: always
+#  hostname: cron_batch_c4c
+#  container_name: cron_batch_c4c
+#  links:
+#   - tomcat_c4c:tomcat_c4c
+#   - tomcat_sesame_c4c:tomcat_sesame_c4c
+#   - mongo_c4c:mongo_c4c
