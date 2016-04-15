@@ -40,7 +40,7 @@ class { 'tomcat':
 tomcat::instance { 'tomcat7':
   catalina_base => '/opt/apache-tomcat/tomcat7',
   catalina_home => '/opt/apache-tomcat/tomcat7',
-  source_url    => 'http://mirror.nexcess.net/apache/tomcat/tomcat-7/v7.0.67/bin/apache-tomcat-7.0.67.tar.gz',
+  source_url    => 'https://raw.githubusercontent.com/CloudOpting/pilots/master/EXP-03-CityAgenda_Next2Me/_standalone/tomcat/apache-tomcat-7.0.68.tar.gz',
   install_from_source => true,
 }->
 tomcat::war { 'cloud4cities-webapp-api.war':
